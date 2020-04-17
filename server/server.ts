@@ -10,7 +10,7 @@ import {HobbyRestService} from "./rest/hobby-rest-service";
 import {CompanyRestService} from "./rest/company-rest-service";
 import {ProjectDatabase} from "./database/project-database";
 import {ProjectRestService} from "./rest/project-rest-service";
-import engines = require('consolidate');
+//import engines = require('consolidate');
 
 
 import * as express from "express";
@@ -25,8 +25,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 
-app.engine('html', engines.mustache);
-app.set('view engine', 'html');
+//app.engine('html', engines.mustache);
+//app.set('view engine', 'html');
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
 const port = process.env.PORT || 8080;

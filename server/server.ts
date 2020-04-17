@@ -10,7 +10,7 @@ import {HobbyRestService} from "./rest/hobby-rest-service";
 import {CompanyRestService} from "./rest/company-rest-service";
 import {ProjectDatabase} from "./database/project-database";
 import {ProjectRestService} from "./rest/project-rest-service";
-//import engines = require('consolidate'); //--
+import engines = require('consolidate'); //--
 import express = require("express");
 import {DynamicComponentsRestService} from "./rest/dynamic-components-rest-service";
 import {FileDatabase} from "./database/file-database";
@@ -20,7 +20,6 @@ const bodyParser = require("body-parser");
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-//app.use(express.static(path.join(__dirname, 'public')));--
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
 const port = process.env.PORT || 8080;
@@ -30,8 +29,8 @@ process.on("unhandledRejection", (reason, p) => {
 });
 //Test
 app.set('views', __dirname + '/views');
-//app.engine('html', engines.mustache);
-//app.set('view engine', 'html');
+app.engine('html', engines.mustache);
+app.set('view engine', 'html');
 
 // serve Frontend
 app.use("/", [express.static(__dirname + "./../dist")]);

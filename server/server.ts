@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
-const port = process.env.PORT || 4200;
+const port = process.env.PORT || 8080;
 
 process.on("unhandledRejection", (reason, p) => {
     console.log("Unhandled Rejection at:", p, "reason:", reason);

@@ -10,8 +10,7 @@ import {HobbyRestService} from "./rest/hobby-rest-service";
 import {CompanyRestService} from "./rest/company-rest-service";
 import {ProjectDatabase} from "./database/project-database";
 import {ProjectRestService} from "./rest/project-rest-service";
-//import engines = require('consolidate'); //--
-import express = require("express");
+import * as express from "express";
 import {DynamicComponentsRestService} from "./rest/dynamic-components-rest-service";
 import {FileDatabase} from "./database/file-database";
 import {FileRestService} from "./rest/file-rest-service";
@@ -20,6 +19,7 @@ const bodyParser = require("body-parser");
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
 const port = process.env.PORT || 8080;
@@ -27,10 +27,6 @@ const port = process.env.PORT || 8080;
 process.on("unhandledRejection", (reason, p) => {
     console.log("Unhandled Rejection at:", p, "reason:", reason);
 });
-//Test
-//app.set('views', __dirname + '/views');
-//app.engine('html', engines.express);
-//app.set('view engine', 'html');
 
 // serve Frontend
 app.use("/", [express.static(__dirname + "./../dist")]);
@@ -61,7 +57,7 @@ app.get("/*", function (req, res, next) {
 
 // Path ping request
 app.get("/services/ping", function (req, res) {
-    res.json({status: "ok", userId: "demo", version: "0.6.1"});
+    res.json({status: "ok", userId: "demo", version: "0.6.2"});
 });
 
 // Path example entities

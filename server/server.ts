@@ -1,4 +1,4 @@
-npm install express
+npm install express;
 import {PersonDatabase} from "./database/person-database";
 import {CompanyDatabase} from "./database/company-database";
 import {TaskDatabase} from "./database/task-database";

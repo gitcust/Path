@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 
 
 app.engine('html', engines.mustache);
-app.set('view engine', 'html')
+app.set('view engine', 'html');
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
 const port = process.env.PORT || 8080;
